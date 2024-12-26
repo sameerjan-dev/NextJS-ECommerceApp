@@ -15,12 +15,12 @@ export const orderType = defineType({
     }),
     defineField({
       name: "stripeCheckoutSessionId",
-      title: "Stripe Checkout Session Id",
+      title: "Stripe Checkout Session ID",
       type: "string",
     }),
     defineField({
       name: "stripeCustomerId",
-      title: "Stripe Customer Id",
+      title: "Stripe Customer ID",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
@@ -44,7 +44,7 @@ export const orderType = defineType({
     }),
     defineField({
       name: "stripePaymentIntentId",
-      title: "Stripe Payment Intent Id",
+      title: "Stripe Payment Intent ID",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
@@ -79,7 +79,7 @@ export const orderType = defineType({
             prepare(select) {
               return {
                 title: `${select.product} x ${select.quantity}`,
-                subtitle: `${select.price} x ${select.quantity}`,
+                subtitle: `${select.price * select.quantity}`,
                 media: select.image,
               };
             },
@@ -111,26 +111,11 @@ export const orderType = defineType({
       type: "string",
       options: {
         list: [
-          {
-            title: "Pending",
-            value: "pending",
-          },
-          {
-            title: "Paid",
-            value: "paid",
-          },
-          {
-            title: "Shipped",
-            value: "shipped",
-          },
-          {
-            title: "Delivered",
-            value: "delivered",
-          },
-          {
-            title: "Cancelled",
-            value: "cancelled",
-          },
+          { title: "Pending", value: "pending" },
+          { title: "Paid", value: "paid" },
+          { title: "Shipped", value: "shipped" },
+          { title: "Delivered", value: "delivered" },
+          { title: "Cancelled", value: "cancelled" },
         ],
       },
     }),

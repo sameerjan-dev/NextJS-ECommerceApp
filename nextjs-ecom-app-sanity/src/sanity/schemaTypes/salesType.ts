@@ -1,5 +1,5 @@
-import { TagIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { TagIcon } from "@sanity/icons"; // Replace with any relevant icon for sales
+import { defineField, defineType } from "sanity";
 
 export const salesType = defineType({
   name: "sale",
@@ -29,9 +29,9 @@ export const salesType = defineType({
       title: "Coupon Code",
     }),
     defineField({
-      name: "validForm",
+      name: "validFrom",
       type: "datetime",
-      title: "Valid Form",
+      title: "Valid From",
     }),
     defineField({
       name: "validUntil",
